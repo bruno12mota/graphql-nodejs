@@ -2,18 +2,18 @@ import {
   GraphQLList
 } from 'graphql';
 
-import eventType from '../../types/event';
+import blogPostType from '../../types/blog-post';
 import getProjection from '../../get-projection';
-import EventModel from '../../../models/event';
+import BlogPostModel from '../../../models/blog-post';
 
 export default {
-  type: new GraphQLList(eventType),
+  type: new GraphQLList(blogPostType),
   args: {},
   resolve (root, params, options) {
     const projection = getProjection(options.fieldASTs[0]);
 
-    return EventModel
-      .find({})
+    return BlogPostModel
+      .find()
       .select(projection)
       .exec();
   }

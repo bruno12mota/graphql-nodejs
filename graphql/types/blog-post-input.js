@@ -1,15 +1,14 @@
 import {
   GraphQLInputObjectType,
   GraphQLString,
-  GraphQLID,
-  GraphQLInt
+  GraphQLID
 } from 'graphql';
 
 export default new GraphQLInputObjectType({
-  name: 'EventInput',
+  name: 'BlogPostInput',
   fields: {
     _id: {type: GraphQLID},
     title: {type: GraphQLString},
-    attendees: {type: GraphQLInt}
+    description: {type: GraphQLString}
   }
 });

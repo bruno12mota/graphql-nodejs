@@ -1,5 +1,7 @@
-import event from './event';
+import blogPost from './blog-post';
+import comment from './comment';
 
 export default {
-  ...event
+  ...blogPost,
+  ...comment
 };

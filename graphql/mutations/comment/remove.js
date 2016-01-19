@@ -3,12 +3,12 @@ import {
   GraphQLID
 } from 'graphql';
 
-import eventType from '../../types/event';
+import commentType from '../../types/comment';
 import getProjection from '../../get-projection';
-import EventModel from '../../../models/event';
+import CommentModel from '../../../models/comment';
 
 export default {
-  type: eventType,
+  type: commentType,
   args: {
     _id: {
       name: '_id',
@@ -17,16 +17,16 @@ export default {
   },
   async resolve (root, params, options) {
     const projection = getProjection(options.fieldASTs[0]);
-    const removedEvent = await EventModel
+    const removedComment = await CommentModel
       .findByIdAndRemove(params._id, {
         select: projection
       })
       .exec();
 
-    if (!removedEvent) {
-      throw new Error('Error removing event');
+    if (!removedComment) {
+      throw new Error('Error removing blog post');
     }
 
-    return removedEvent;
+    return removedComment;
   }
 };
