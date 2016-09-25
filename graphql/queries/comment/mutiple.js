@@ -16,7 +16,7 @@ export default {
       type: new GraphQLNonNull(GraphQLID)
     }
   },
-  resolve (root, params, options) {
+  resolve (root, params, ctx, options) {
     const projection = getProjection(options.fieldASTs[0]);
 
     return CommentModel

@@ -9,7 +9,7 @@ import BlogPostModel from '../../../models/blog-post';
 export default {
   type: new GraphQLList(blogPostType),
   args: {},
-  resolve (root, params, options) {
+  resolve (root, params, ctx, options) {
     const projection = getProjection(options.fieldASTs[0]);
 
     return BlogPostModel
