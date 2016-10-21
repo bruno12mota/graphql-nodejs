@@ -9,6 +9,44 @@ Forked from: https://github.com/bruno12mota/graphql-nodejs. Many thanks to him :
 2. `npm start`
 3. Go to http://localhost:4000/graphql with your browser
 
+## Requests sample
+
+### Queries
+
+* List all posts:
+
+    ```
+    {
+      blogPosts {
+        _id
+        title
+        description
+      }
+    }
+    ```
+
+### Mutations
+
+* Adding a post:
+
+    ```
+    mutation {
+      addBlogPost(data: {title: "Mutation", description: "Update or delete your datas!"})
+    }
+    ```
+
+* Adding a comment:
+
+    ```
+    mutation {
+      addComment(data: {
+        _id:"5808e93dad0a0d08c45a6554",
+        postId:"5808e93dad0a0d08c45a6554",
+        text: "very good post!!!"
+      })
+    }
+    ```
+
 ## License
 
 <details>
