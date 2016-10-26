@@ -8,9 +8,6 @@ import {
 export default new GraphQLInputObjectType({
   name: 'CommentInput',
   fields: {
-    _id: {
-      type: new GraphQLNonNull(GraphQLID)
-    },
     postId: {
       type: new GraphQLNonNull(GraphQLID)
     },
