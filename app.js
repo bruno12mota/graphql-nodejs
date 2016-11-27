@@ -9,13 +9,17 @@ var app = express();
 // GraphqQL server route
 app.use('/graphql', graphqlHTTP(req => ({
   schema,
-  pretty: true
+  pretty: true,
+  graphiql: true
 })));
 
 // Connect mongo database
 mongoose.connect('mongodb://localhost/graphql');
 
 // start server
-var server = app.listen(8080, () => {
-  console.log('Listening at port', server.address().port);
+let server = app.listen(4000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('GraphQL listening at http://%s:%s', host, port);
 });
